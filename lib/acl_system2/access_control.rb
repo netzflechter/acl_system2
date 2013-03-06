@@ -1,4 +1,6 @@
-require "#{ File.dirname(__FILE__) }/access_control/access_sentry"
+Dir[File.dirname(__FILE__) + '/access_control/*.rb'].each do |file|
+  require file
+end
 
 module ACLSystem2
 

@@ -1,5 +1,3 @@
-require "#{ File.dirname(__FILE__) }/acl_system2/version"
-require "#{ File.dirname(__FILE__) }/acl_system2/logic_parser"
-require "#{ File.dirname(__FILE__) }/acl_system2/role_handler"
-require "#{ File.dirname(__FILE__) }/acl_system2/access_control"
-require "#{ File.dirname(__FILE__) }/acl_system2/access_handler"
+Dir[File.dirname(__FILE__) + '/acl_system2/*.rb'].each do |file|
+  require file
+end
