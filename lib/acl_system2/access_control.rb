@@ -1,6 +1,6 @@
 require "#{ File.dirname(__FILE__) }/access_control/access_sentry"
 
-module Caboose
+module ACLSystem2
 
   module AccessControl
     
@@ -81,6 +81,6 @@ module Caboose
       result
     end    
 
-  end # AccessControl
+  end
 
-end # Caboose
+end

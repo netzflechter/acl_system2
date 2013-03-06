@@ -1,6 +1,6 @@
 require "#{ File.dirname(__FILE__) }/access_handler"
 
-module Caboose
+module ACLSystem2
 
   class RoleHandler < AccessHandler 
     

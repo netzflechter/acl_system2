@@ -37,7 +37,7 @@ class ControllerProxy
     self.class.before_block.call(self)
   end
     
-  include Caboose::AccessControl
+  include ACLSystem2::AccessControl
   
   access_control([:create, :edit] => 'admin & !blacklist',
       :update => '(admin | moderator) & !blacklist',
@@ -61,7 +61,7 @@ class ControllerProxy
   
 end
 
-class FabOnlyHandler < Caboose::AccessHandler 
+class FabOnlyHandler < ACLSystem2::AccessHandler 
     
   def check(key, context)
     (context[:user].name.downcase == 'fabien' and context[:user].roles.map{ |role| role.title.downcase}.include?(key))
@@ -84,7 +84,7 @@ class AccessControlTest  < Test::Unit::TestCase
 
   def test_first
     context = { :user => User.new }
-    @handler = Caboose::RoleHandler.new
+    @handler = ACLSystem2::RoleHandler.new
     assert @handler.process("(admin | moderator) & !blacklist", context)  
     assert @handler.process("(user | moderator) & !blacklist", context)  
     assert @handler.process("(user | moderator | user) & !blacklist", context)  
