@@ -32,7 +32,7 @@ module ACLSystem2
 
     def default_access_context
       @default_access_context ||= {}
-      @default_access_context[:user] = send(:current_user) if respond_to?(:current_user)
+      @default_access_context[:user] = send(:current_user) if respond_to?(:current_user, true)
       @default_access_context 
     end
 
@@ -53,7 +53,7 @@ module ACLSystem2
       if permit?(logicstring, context) 
         result = yield if block_given?
       end 
-      result
+      result and return
     end    
 
   end
