@@ -53,7 +53,7 @@ module ACLSystem2
       if permit?(logicstring, context) 
         result = yield if block_given?
       end 
-      result and return
+      result
     end    
 
   end
